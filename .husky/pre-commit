@@ -1,4 +1,24 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-echo "pre-commit hook setup"
+# valid_branch_regex="^(develop|feat|fix|perf|release|hotfix|revert)\/[a-z]+\/(ud|as)-[0-9]+$"
+valid_branch_regex="^(develop|feat|fix|perf|release|hotfix|revert)"
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+    echo "There is something wrong with your branch name. Branch names in this project  should be (develop|feat|fix|perf|release|hotfix|revert)"
+    exit 1
+fi
+
+# FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+# [ -z "$FILES" ] && exit 0
+
+# # Prettify all selected files
+# echo "$FILES" | xargs ./node_modules/.bin/prettier --ignore-unknown --write
+
+# # Add back the modified/prettified files to staging
+# echo "$FILES" | xargs git add
+
+# yarn lint:apps:libs:fix
+# yarn test:all
+
+exit 0
