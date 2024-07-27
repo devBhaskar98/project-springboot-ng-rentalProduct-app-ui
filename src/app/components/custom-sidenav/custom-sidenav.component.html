@@ -1,0 +1,26 @@
+<div class="sidenav-header">
+    <img
+      [width]="profilePicSize()"
+      [height]="profilePicSize()"
+      src="/assets/profile-pic.png"
+    />
+    <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
+      <h2>BMW Owner</h2>
+      <p>Bhaskar Dixit</p>
+    </div>
+  </div>
+  <mat-nav-list>
+    <a
+      mat-list-item
+      *ngFor="let item of menuItems()"
+      [routerLinkActive]="'selected-menu-item'"
+      [routerLink]="item.route"
+      #rla="routerLinkActive"
+      [activated]="rla.isActive"
+    >
+      <mat-icon  [fontSet] = "rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon> {{ item.icon }} </mat-icon>
+      <span matListItemTitle *ngIf="!sideNavCollapsed()">
+        {{ item.label }}
+      </span>
+    </a>
+  </mat-nav-list>

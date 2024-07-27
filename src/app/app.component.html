@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <h2>Fullstack OAuth2 Keycloak</h2>
 </div>
 <div>
@@ -11,4 +11,20 @@
 </div>
 <div>
   {{ helloText }}
-</div>
+</div> -->
+
+
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" [style.width]="sideNavWidth()"> 
+    <app-custom-sidenav [collapsed] = "collapsed()" />
+  </mat-sidenav>
+  <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
