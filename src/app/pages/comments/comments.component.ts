@@ -5,13 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-comments',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <p>
-      comments works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './comments.component.html',
+  styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent {
 
