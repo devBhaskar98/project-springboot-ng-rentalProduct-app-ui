@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CustomSidenavComponent } from "./components/custom-sidenav/custom-sidenav.component";
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { CustomSidenavComponent } from "./components/custom-sidenav/custom-siden
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    CustomSidenavComponent
+    CustomSidenavComponent,
+    NgMultiSelectDropDownModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

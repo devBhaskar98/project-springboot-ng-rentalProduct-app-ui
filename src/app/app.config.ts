@@ -5,6 +5,7 @@ import { AuthConfig, OAuthService, provideOAuthClient } from 'angular-oauth2-oid
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
+
 export const authCodeFlowConfig: AuthConfig = {
   issuer: 'http://localhost:8180/realms/dev-test-realm',
   tokenEndpoint: 'http://localhost:8180/realms/dev-test-realm/protocol/openid-connect/token',
