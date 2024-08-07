@@ -32,7 +32,7 @@ export class AppComponent {
   
   title = 'youtube-sidebar';
 
-  collapsed = signal(false);
+  collapsed = signal(true);
 
   sideNavWidth = computed( () =>  this.collapsed() ? '65px' : '256px')
 
