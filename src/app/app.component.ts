@@ -9,11 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CustomSidenavComponent } from "./components/custom-sidenav/custom-sidenav.component";
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,
+    FooterComponent,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,

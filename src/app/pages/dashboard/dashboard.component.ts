@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ProductsComponent } from '../products/products.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,8 @@ import { ProductsComponent } from '../products/products.component';
   imports: [
     CommonModule,
     NgMultiSelectDropDownModule,
-    ProductsComponent
+    ProductsComponent,
+    FooterComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
