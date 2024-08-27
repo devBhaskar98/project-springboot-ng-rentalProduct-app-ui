@@ -29,7 +29,9 @@ import { FooterComponent } from './pages/footer/footer.component';
 export class AppComponent {
   helloText = '';
 
-  constructor(private oauthService: OAuthService, private httpClient: HttpClient) { }
+  // constructor(private oauthService: OAuthService, private httpClient: HttpClient) { }
+  // TODO: Enable the oauth service
+  constructor(private httpClient: HttpClient) { }
 
   
   title = 'youtube-sidebar';
@@ -38,19 +40,19 @@ export class AppComponent {
 
   sideNavWidth = computed( () =>  this.collapsed() ? '65px' : '256px')
 
-  logout() {
-    console.log("logging out", this.oauthService);
-    this.oauthService.logOut();
-  }
+  // logout() {
+  //   console.log("logging out", this.oauthService);
+  //   this.oauthService.logOut();
+  // }
 
-  getHelloText() {
-    this.httpClient.get<{ message: string }>('http://localhost:8080/hello', {
-      headers: {
-        'Authorization': `Bearer ${this.oauthService.getAccessToken()}`
-      }
-    }).subscribe(result => {
-      this.helloText = result.message;
-    });
-  }
+  // getHelloText() {
+  //   this.httpClient.get<{ message: string }>('http://localhost:8080/hello', {
+  //     headers: {
+  //       'Authorization': `Bearer ${this.oauthService.getAccessToken()}`
+  //     }
+  //   }).subscribe(result => {
+  //     this.helloText = result.message;
+  //   });
+  // }
 
 }

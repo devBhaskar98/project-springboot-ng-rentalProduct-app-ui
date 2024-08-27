@@ -3,6 +3,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ContentsComponent } from './pages/contents/contents.component';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { CommentsComponent } from './pages/comments/comments.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { BackendDownComponent } from './pages/backend-down/backend-down.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +27,14 @@ export const routes: Routes = [
     {
         path: 'comments',
         component: CommentsComponent
+    },
+    {
+        path: 'error',
+        component: ErrorComponent
+    },
+    {
+        path: 'backendDown',
+        component: BackendDownComponent
     },
     
 ];
