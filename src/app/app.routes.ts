@@ -34,7 +34,7 @@ export const routes: Routes = [
     },
     {
         path: 'backendDown',
-        component: BackendDownComponent
+        component: ErrorComponent
     },
     
 ];

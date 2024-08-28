@@ -1,11 +1,12 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, Provider } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { AuthConfig, OAuthService, provideOAuthClient } from 'angular-oauth2-oidc';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ErrorInterceptor } from './service/interceptors/error.interceptor';
 import { LoggerInterceptor } from './service/interceptors/logger.interceptor';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export const authCodeFlowConfig: AuthConfig = {
@@ -27,11 +28,19 @@ function initializeOAuth(oauthService: OAuthService): Promise<void> {
   });
 }
 
+
+/** Provider for the Noop Interceptor. */
+export const errorInterceptor: Provider = { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true };
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    provideHttpClient(withInterceptors([LoggerInterceptor, ErrorInterceptor])),
+    importProvidersFrom([HttpClientModule, 
+      MatDialogModule]),
+    errorInterceptor,
+    provideHttpClient(withInterceptors([LoggerInterceptor])),
+    
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: ErrorInterceptor,
