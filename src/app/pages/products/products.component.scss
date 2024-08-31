@@ -1,34 +1,45 @@
 .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .flex-column {
-    flex: 1 1 calc(33.333% - 10px);
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #f0f0f0;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  flex: 1 1 calc(33.333% - 10px);
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .product-actions {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .product-actions button {
-    margin: 5px;
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .product-actions button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
+}
+
+.paginator-wrapper {
+  display: flex;
+  justify-content: center; /* Center paginator horizontally */
+  margin-top: 16px; /* Space above the paginator */
+  width: 100%; /* Full width to ensure centering */
+}
+
+.mat-paginator {
+  /* Optional: Customize paginator styles if needed */
 }

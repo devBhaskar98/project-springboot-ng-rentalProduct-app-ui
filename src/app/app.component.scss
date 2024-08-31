@@ -5,7 +5,7 @@
 //     margin-left: 2rem;
 //     display: flex;
 //   }
-  
+
 //   button {
 //     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 //     font-weight: bold;mat-toolbar
@@ -14,20 +14,21 @@
 //     background-color: burlywood;
 //     cursor: pointer;
 //   }
-  
-  mat-toolbar {
-    position: relative;
-    z-index: 5
-  }
 
-  .content {
-    padding: 24px;
-  }
+mat-toolbar {
+  position: relative;
+  z-index: 5;
+}
 
-  mat-sidenav-container {
-    height: calc(100vh - 65px)
-  }
+.content {
+  padding: 24px;
+}
 
-  mat-sidenav, mat-sidenav-content {
-    transition: all 500ms ease-in-out;
-  }
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+mat-sidenav,
+mat-sidenav-content {
+  transition: all 500ms ease-in-out;
+}

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-comments',
@@ -8,6 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
 })
-export class CommentsComponent {
-
-}
+export class CommentsComponent {}

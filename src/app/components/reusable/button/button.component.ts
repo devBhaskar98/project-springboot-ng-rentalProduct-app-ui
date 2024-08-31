@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,10 +7,18 @@ import { Component, Input } from '@angular/core';
       <ng-content></ng-content>
     </button>
   `,
-  styles: [`
-    .primary { background-color: blue; color: white; }
-    .secondary { background-color: gray; color: white; }
-  `]
+  styles: [
+    `
+      .primary {
+        background-color: blue;
+        color: white;
+      }
+      .secondary {
+        background-color: gray;
+        color: white;
+      }
+    `,
+  ],
 })
 export class ButtonComponent {
   @Input() color: 'primary' | 'secondary' = 'primary';

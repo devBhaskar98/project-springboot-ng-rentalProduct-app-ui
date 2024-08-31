@@ -1,14 +1,20 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { catchError, Observable, tap, throwError } from 'rxjs';
-import { BackendDownComponent } from '../../pages/backend-down/backend-down.component';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpInterceptorFn,
+  HttpRequest,
+} from '@angular/common/http';
+import {inject, Injectable} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {Router} from '@angular/router';
+import {catchError, Observable, tap, throwError} from 'rxjs';
+import {BackendDownComponent} from '../../pages/backend-down/backend-down.component';
 
-  /** Pass untouched request through to the next request handler. */
+/** Pass untouched request through to the next request handler. */
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-
   constructor(private dialog: MatDialog) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -21,14 +27,14 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.openErrorDialog('Backend is down. Please try again later.');
         }
         return throwError(() => error);
-      })
+      }),
     );
   }
 
   private openErrorDialog(message: string): void {
     const dialogRef = this.dialog.open(BackendDownComponent, {
       width: '300px',
-      data: { errorMessage: message }
+      data: {errorMessage: message},
     });
 
     // Optional: Handle any actions after the dialog is closed
@@ -37,4 +43,3 @@ export class ErrorInterceptor implements HttpInterceptor {
     });
   }
 }
- 
