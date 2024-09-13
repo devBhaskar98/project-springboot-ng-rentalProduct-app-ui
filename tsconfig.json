@@ -24,6 +24,8 @@
       "@rentalproduct/models": ["app/models/index.ts"]
     }
   },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist", ".yarn", "**/*.spec.ts", "**/*.mock.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
