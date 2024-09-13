@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {ProductsComponent} from '../products/products.component';
 import {FooterComponent} from '../footer/footer.component';
+// import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
