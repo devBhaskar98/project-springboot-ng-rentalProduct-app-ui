@@ -21,7 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@rentalproduct/models": ["app/models/index.ts"]
+      "@rentalproduct/models": ["app/models/index.ts"],
+      "@rentalproduct/pages": ["app/pages"]
     }
   },
   "angularCompilerOptions": {
