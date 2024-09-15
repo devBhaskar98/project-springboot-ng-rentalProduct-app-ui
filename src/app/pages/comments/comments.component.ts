@@ -26,7 +26,6 @@ export class CommentsComponent {
   fetchComment() {
     this.commentService.getComment().subscribe(response => {
       this.comments = response;
-      console.log('this comment', this.comments)
     })
   }
 
