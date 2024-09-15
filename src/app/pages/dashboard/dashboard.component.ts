@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {ProductsComponent} from '../products/products.component';
 import {FooterComponent} from '../footer/footer.component';
+import { PageRequestDTO, ProductItemList } from '@rentalproduct/models';
 // import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -13,23 +14,22 @@ import {FooterComponent} from '../footer/footer.component';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  dropdownList: any = [];
-  selectedItems: any = [];
+  dropdownList: ProductItemList[] = [];
+  selectedItems: ProductItemList[] = [];
   dropdownSettings: any = {};
+  pageRequestDTO !: PageRequestDTO;
   ngOnInit() {
     this.dropdownList = [
-      {item_id: 1, item_text: 'Mumbai'},
-      {item_id: 2, item_text: 'Bangaluru'},
-      {item_id: 3, item_text: 'Pune'},
-      {item_id: 4, item_text: 'Navsari'},
-      {item_id: 5, item_text: 'New Delhi'},
+      {item_id: 'name', item_text: 'Name'},
+      {item_id: 'price', item_text: 'Price'}
     ];
+
     this.selectedItems = [
-      {item_id: 3, item_text: 'Pune'},
-      {item_id: 4, item_text: 'Navsari'},
+      {item_id: 'name', item_text: 'Name'},
     ];
+
     this.dropdownSettings = {
-      singleSelection: false,
+      singleSelection: true, //TODO: revert to false
       idField: 'item_id',
       textField: 'item_text',
       selectAllText: 'Select All',
@@ -38,10 +38,14 @@ export class DashboardComponent {
       allowSearchFilter: true,
     };
   }
+  
   onItemSelect(item: any) {
-    console.log(item);
+    this.pageRequestDTO = {
+      sortByColumn: item.item_id,
+    };
   }
-  onSelectAll(items: any) {
+
+  onSelectAll(items: unknown) {
     console.log(items);
   }
 }
