@@ -25,8 +25,8 @@
     <app-custom-sidenav [collapsed]="collapsed()" />
   </mat-sidenav>
   <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">
-    <router-outlet></router-outlet>
-    <!-- Disable footer -->
-    <!-- <app-footer></app-footer> -->
+    <router-outlet></router-outlet> 
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<app-footer></app-footer>
