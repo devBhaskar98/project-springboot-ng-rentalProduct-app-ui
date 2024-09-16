@@ -34,6 +34,10 @@ export const routes: Routes = [
   },
   {
     path: 'backendDown',
-    component: ErrorComponent,
+    component: BackendDownComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
   },
 ];
