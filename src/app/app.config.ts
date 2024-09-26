@@ -9,8 +9,8 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import {provideAnimations} from '@angular/platform-browser/animations';
-import {ErrorInterceptor} from './service/interceptors/error.interceptor';
-import {LoggerInterceptor} from './service/interceptors/logger.interceptor';
+
+import { ErrorInterceptor, LoggerInterceptor, uiLoaderInterceptor } from './shared/index';
 import {MatDialogModule} from '@angular/material/dialog';
 
 export const authCodeFlowConfig: AuthConfig = {
@@ -44,7 +44,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom([HttpClientModule, MatDialogModule]),
     errorInterceptor,
-    provideHttpClient(withInterceptors([LoggerInterceptor])),
+    provideHttpClient(withInterceptors([LoggerInterceptor, uiLoaderInterceptor])),
 
     // {
     //   provide: HTTP_INTERCEPTORS,

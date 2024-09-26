@@ -19,12 +19,16 @@
   </button>
   Toys Shop
 </mat-toolbar>
+  @if (isLoading()) {
+    <mat-progress-bar  mode="indeterminate" />
+  }
 
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" [style.width]="sideNavWidth()">
     <app-custom-sidenav [collapsed]="collapsed()" />
   </mat-sidenav>
   <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">
+    
     <router-outlet></router-outlet> 
   </mat-sidenav-content>
 </mat-sidenav-container>
