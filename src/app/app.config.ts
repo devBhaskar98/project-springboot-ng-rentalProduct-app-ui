@@ -12,6 +12,8 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 
 import { ErrorInterceptor, LoggerInterceptor, uiLoaderInterceptor } from './shared/index';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 export const authCodeFlowConfig: AuthConfig = {
   issuer: 'http://localhost:8180/realms/dev-test-realm',
@@ -42,7 +44,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    importProvidersFrom([HttpClientModule, MatDialogModule]),
+    importProvidersFrom([HttpClientModule, MatDialogModule, NgbModule]),
     errorInterceptor,
     provideHttpClient(withInterceptors([LoggerInterceptor, uiLoaderInterceptor])),
 

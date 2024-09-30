@@ -1,15 +1,19 @@
 <div class="flex-container">
-  <div *ngFor="let product of products" class="flex-column">
-    <h3>{{ product.name }}</h3>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
+  <div *ngFor="let product of products" class="card flex-column" style="width: 18rem; margin: 10px;">
+    <img class="card-img-top" src="..." alt="{{ product.name }} image">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
 
-    <div class="product-actions">
-      <!-- <button (click)="likeProduct(product)">Like</button> -->
-      <button>cmd1</button>
-      <button>cmd2</button>
+      <div class="product-actions" style="margin-top: 10px;">
+        <button class="btn btn-secondary">cmd1</button>
+        <button class="btn btn-secondary">cmd2</button>
+      </div>
     </div>
   </div>
 </div>
+
 
 <!-- Pagination Controls -->
 
