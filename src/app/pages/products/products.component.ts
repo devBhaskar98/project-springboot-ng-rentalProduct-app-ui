@@ -3,6 +3,9 @@ import {ProductService} from '../../service/product.service';
 import {PageRequestDTO, Product} from '../../models/products.model';
 import {CommonModule} from '@angular/common';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import { Store } from '@ngrx/store';
+import { AppState } from 'app/shared/store/store';
+import { getAllProducts } from 'app/shared/store/product/product.action';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +16,7 @@ import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 })
 export class ProductsComponent implements OnInit, OnChanges {
   @Input() sortBy: PageRequestDTO = {};
+  private readonly store$ = inject(Store<AppState>);
   productService = inject(ProductService);
 
   previousSortByColumn: string | null = null;  // To store the last sort column
@@ -25,6 +29,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   };
 
   ngOnInit(): void {
+    this.store$.dispatch(getAllProducts());
     this.fetchProducts(this.pageRequestDTO);
   }
 
