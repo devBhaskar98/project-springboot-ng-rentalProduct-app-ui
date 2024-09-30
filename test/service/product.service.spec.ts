@@ -24,8 +24,8 @@ describe('ProductService', () => {
 
   it('should retrieve products (GET)', () => {
     const mockProducts: Product[] = [
-      { id: 1, name: 'Product 1' },
-      { id: 2, name: 'Product 2' },
+      { id: 1, name: 'Product 1', price: 100 },
+      { id: 2, name: 'Product 2', price : 200 },
     ];
 
     service.getProducts().subscribe((products) => {
@@ -39,20 +39,30 @@ describe('ProductService', () => {
 
   it('should retrieve paginated products (POST)', () => {
     const mockResponse = {
-      content: [{ id: 1, name: 'Product 1' }],
+      content: [{ id: 1, name: 'Product 1', price: 100 }],
       totalPages: 10,
       totalElements: 100,
     };
 
-    const pageRequestDto: PageRequestDTO = { pageNo: 1, pageSize: 10 };
+    const pageRequestDto: PageRequestDTO = { 
+      pageNo: 1, 
+      pageSize: 10,
+      sort: "ASC",
+      sortByColumn: "name"
+    };
 
     service.getProductsPaginated(pageRequestDto).subscribe((response) => {
       expect(response).toEqual(mockResponse);
+
+      // Additional checks can be made here for content, totalPages, etc.
+      expect(response.content.length).toBe(1);
+      expect(response.totalPages).toBe(10);
+      expect(response.totalElements).toBe(100);
     });
 
     const req = httpMock.expectOne(`${API_URL}/product/page`);
     expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual({ pageNo: 1, pageSize: 10 }); // Check the request body
+    expect(req.request.body).toEqual({ pageNo: 1, pageSize: 10, sort: 'ASC', sortByColumn: 'name' }); // Check the request body
     req.flush(mockResponse); // Simulate a server response
   });
 });

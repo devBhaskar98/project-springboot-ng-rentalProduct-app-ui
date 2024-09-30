@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CommentsComponent} from '../../../src/app/pages/comments/comments.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CommentsComponent', () => {
   let component: CommentsComponent;
@@ -8,7 +9,10 @@ describe('CommentsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CommentsComponent],
+      imports: [
+        CommentsComponent,
+        HttpClientModule
+      ],
     });
     fixture = TestBed.createComponent(CommentsComponent);
     component = fixture.componentInstance;

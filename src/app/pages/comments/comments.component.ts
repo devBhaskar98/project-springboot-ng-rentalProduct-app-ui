@@ -1,7 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { CommentService } from 'app/service/comment.service';
+
 import { Comments } from '@rentalproduct/models';
+
+import { CommentService } from '../../service/comment.service'
 
 @Component({
   selector: 'app-comments',
@@ -17,7 +19,7 @@ export class CommentsComponent {
     comment: 'This is a sample comment.'
   }];
 
-  private readonly commentService = inject(CommentService)
+  private readonly commentService = inject(CommentService);
 
   ngOnInit(): void {
     this.fetchComment()
