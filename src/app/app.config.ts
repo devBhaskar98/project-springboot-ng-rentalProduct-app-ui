@@ -13,6 +13,13 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import { ErrorInterceptor, LoggerInterceptor, uiLoaderInterceptor } from './shared/index';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// Providers - Ngrx
+import { appEffects, appStore } from './shared/store/store';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { createDevToolsConfig } from './shared/store/config/dev-tools.config';
+
 
 
 export const authCodeFlowConfig: AuthConfig = {
@@ -47,6 +54,10 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom([HttpClientModule, MatDialogModule, NgbModule]),
     errorInterceptor,
     provideHttpClient(withInterceptors([LoggerInterceptor, uiLoaderInterceptor])),
+    provideStore(appStore, { runtimeChecks: {} }),
+    // provideStore(appStore, { runtimeChecks: {}, metaReducers: metaReducers }),
+    provideEffects(appEffects),
+    provideStoreDevtools(createDevToolsConfig()),
 
     // {
     //   provide: HTTP_INTERCEPTORS,

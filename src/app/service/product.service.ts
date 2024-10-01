@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import {API_URL} from '../constant/app.constant';
 import {PageRequestDTO, Product, ProductPaginatedResponse} from '@rentalproduct/models';
+
 
 @Injectable({
   providedIn: 'root',
@@ -26,4 +27,11 @@ export class ProductService {
 
     return this.http.post<ProductPaginatedResponse>(`${this.apiUrl}/product/page`, body);
   }
+
+  getAllProductsDummy(): Observable<Product[]> {
+     // Create a dummy response
+    return this.http.get<Product[]>("assets/mock_data/product.json");
+  }
+
+
 }
