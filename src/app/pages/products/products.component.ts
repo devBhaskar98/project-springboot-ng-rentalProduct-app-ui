@@ -6,6 +6,7 @@ import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { AppState } from 'app/shared/store/store';
 import { getAllProducts } from 'app/shared/store/product/product.action';
+import { productSelector } from 'app/shared/store/product/product.selector';
 
 @Component({
   selector: 'app-products',
@@ -18,6 +19,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   @Input() sortBy: PageRequestDTO = {};
   private readonly store$ = inject(Store<AppState>);
   productService = inject(ProductService);
+  
+  products$ = this.store$.select(
+    productSelector,
+  );
 
   previousSortByColumn: string | null = null;  // To store the last sort column
   products: Product[] = [];
@@ -30,7 +35,13 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.store$.dispatch(getAllProducts());
-    this.fetchProducts(this.pageRequestDTO);
+
+    this.products$.subscribe({
+      next: (response) => {
+        this.products = response;
+      }
+    })
+    // this.fetchProducts(this.pageRequestDTO);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

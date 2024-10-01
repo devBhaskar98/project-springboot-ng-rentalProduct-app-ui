@@ -8,7 +8,7 @@ export const productState = (state: AppState): ProductState => {
   return state.product;
 };
 
-export const journeySelector = createSelector(
+export const productSelector = createSelector(
     productState,
   (productSlice: ProductState) => {
     return productSlice.products;
