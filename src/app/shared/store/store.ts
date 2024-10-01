@@ -1,23 +1,18 @@
-import { ActionReducer } from '@ngrx/store';
-import { ProductState } from './product/product.state';
-import { productReducer } from './product/product.reducer';
-import { ProductEffects } from './product/product.effect';
-
-
+import {ActionReducer} from '@ngrx/store';
+import {ProductState} from './product/product.state';
+import {productReducer} from './product/product.reducer';
+import {ProductEffects} from './product/product.effect';
 
 export interface AppState {
-    product: ProductState;
+  product: ProductState;
 }
 
 export interface AppStore {
   product: ActionReducer<ProductState>;
-
 }
 
 export const appStore: AppStore = {
-    product: productReducer
+  product: productReducer,
 };
 
-export const appEffects = [
-    ProductEffects
-];
+export const appEffects = [ProductEffects];

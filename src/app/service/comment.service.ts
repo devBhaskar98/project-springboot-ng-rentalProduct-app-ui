@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {API_URL} from '../constant/app.constant';
-import { Comments } from '@rentalproduct/models';
-
-
+import {Comments} from '@rentalproduct/models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +15,4 @@ export class CommentService {
   getComment(): Observable<Comments[]> {
     return this.http.get<Comments[]>(`${this.apiUrl}/comment/`);
   }
-
-
 }

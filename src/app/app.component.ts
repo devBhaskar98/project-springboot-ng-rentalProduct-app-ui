@@ -11,9 +11,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {CustomSidenavComponent} from './components/custom-sidenav/custom-sidenav.component';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {FooterComponent} from './pages/footer/footer.component';
-import { IS_UI_LOADING } from './shared/tokens/is-loading-token';
-import { toSignal } from '@angular/core/rxjs-interop';
-
+import {IS_UI_LOADING} from './shared/tokens/is-loading-token';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +27,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     MatSidenavModule,
     CustomSidenavComponent,
     NgMultiSelectDropDownModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

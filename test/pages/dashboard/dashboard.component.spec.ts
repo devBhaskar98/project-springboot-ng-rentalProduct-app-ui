@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DashboardComponent } from '../../../src/app/pages/dashboard/dashboard.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common'; // For common Angular directives
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'; // Importing the dropdown module if used in your component
-import { HttpClientModule } from '@angular/common/http';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DashboardComponent} from '../../../src/app/pages/dashboard/dashboard.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common'; // For common Angular directives
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'; // Importing the dropdown module if used in your component
+import {HttpClientModule} from '@angular/common/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -16,7 +16,7 @@ describe('DashboardComponent', () => {
         NoopAnimationsModule,
         NgMultiSelectDropDownModule, // Import the dropdown module if used in your component
         DashboardComponent,
-        HttpClientModule
+        HttpClientModule,
       ],
     }).compileComponents(); // Ensure to compile components before creating fixture
 

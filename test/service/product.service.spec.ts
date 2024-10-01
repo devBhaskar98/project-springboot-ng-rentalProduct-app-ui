@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ProductService } from '../../src/app/service/product.service';
-import { Product, PageRequestDTO } from '../../src/app/models/index'
-import { API_URL } from '../../src/app/constant/app.constant'
+import {TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {ProductService} from '../../src/app/service/product.service';
+import {Product, PageRequestDTO} from '../../src/app/models/index';
+import {API_URL} from '../../src/app/constant/app.constant';
 
 describe('ProductService', () => {
   let service: ProductService;
@@ -24,8 +24,8 @@ describe('ProductService', () => {
 
   it('should retrieve products (GET)', () => {
     const mockProducts: Product[] = [
-      { id: 1, name: 'Product 1', price: 100 },
-      { id: 2, name: 'Product 2', price : 200 },
+      {id: 1, name: 'Product 1', price: 100},
+      {id: 2, name: 'Product 2', price: 200},
     ];
 
     service.getProducts().subscribe((products) => {
@@ -39,16 +39,16 @@ describe('ProductService', () => {
 
   it('should retrieve paginated products (POST)', () => {
     const mockResponse = {
-      content: [{ id: 1, name: 'Product 1', price: 100 }],
+      content: [{id: 1, name: 'Product 1', price: 100}],
       totalPages: 10,
       totalElements: 100,
     };
 
-    const pageRequestDto: PageRequestDTO = { 
-      pageNo: 1, 
+    const pageRequestDto: PageRequestDTO = {
+      pageNo: 1,
       pageSize: 10,
-      sort: "ASC",
-      sortByColumn: "name"
+      sort: 'ASC',
+      sortByColumn: 'name',
     };
 
     service.getProductsPaginated(pageRequestDto).subscribe((response) => {
@@ -62,7 +62,7 @@ describe('ProductService', () => {
 
     const req = httpMock.expectOne(`${API_URL}/product/page`);
     expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual({ pageNo: 1, pageSize: 10, sort: 'ASC', sortByColumn: 'name' }); // Check the request body
+    expect(req.request.body).toEqual({pageNo: 1, pageSize: 10, sort: 'ASC', sortByColumn: 'name'}); // Check the request body
     req.flush(mockResponse); // Simulate a server response
   });
 });

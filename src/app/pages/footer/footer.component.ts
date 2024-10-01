@@ -11,7 +11,7 @@ export class FooterComponent implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
   currentYear: string = '2024';
 
-  @ViewChild('footer', { static: false }) footerElement!: ElementRef;
+  @ViewChild('footer', {static: false}) footerElement!: ElementRef;
 
   footerHeight = 100;
 
@@ -30,5 +30,4 @@ export class FooterComponent implements AfterViewInit {
       this.renderer.setStyle(container, 'height', availableHeight);
     }
   }
-
 }

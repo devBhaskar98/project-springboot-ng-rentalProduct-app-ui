@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {ProductsComponent} from '../products/products.component';
 import {FooterComponent} from '../footer/footer.component';
-import { PageRequestDTO, ProductItemList } from '@rentalproduct/models';
+import {PageRequestDTO, ProductItemList} from '@rentalproduct/models';
 // import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -17,16 +17,14 @@ export class DashboardComponent {
   dropdownList: ProductItemList[] = [];
   selectedItems: ProductItemList[] = [];
   dropdownSettings: any = {};
-  pageRequestDTO !: PageRequestDTO;
+  pageRequestDTO!: PageRequestDTO;
   ngOnInit() {
     this.dropdownList = [
       {item_id: 'name', item_text: 'Name'},
-      {item_id: 'price', item_text: 'Price'}
+      {item_id: 'price', item_text: 'Price'},
     ];
 
-    this.selectedItems = [
-      {item_id: 'name', item_text: 'Name'},
-    ];
+    this.selectedItems = [{item_id: 'name', item_text: 'Name'}];
 
     this.dropdownSettings = {
       singleSelection: true, //TODO: revert to false
@@ -38,7 +36,7 @@ export class DashboardComponent {
       allowSearchFilter: true,
     };
   }
-  
+
   onItemSelect(item: any) {
     this.pageRequestDTO = {
       sortByColumn: item.item_id,

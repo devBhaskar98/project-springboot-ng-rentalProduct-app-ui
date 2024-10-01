@@ -1,12 +1,10 @@
-import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { ProductService } from 'app/service/product.service';
-import { catchError, map, mergeMap, of, retry } from 'rxjs';
-import { getAllProductFailure, getAllProducts, getAllProductSuccess } from './product.action';
-import { Product } from '@rentalproduct/models';
-
-
+import {inject, Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {ProductService} from 'app/service/product.service';
+import {catchError, map, mergeMap, of, retry} from 'rxjs';
+import {getAllProductFailure, getAllProducts, getAllProductSuccess} from './product.action';
+import {Product} from '@rentalproduct/models';
 
 @Injectable()
 export class ProductEffects {
@@ -25,10 +23,10 @@ export class ProductEffects {
             delay: 10, // Delay in milliseconds between retries
           }),
           map((productResult: Product[]) => {
-            return getAllProductSuccess({ productResult });
+            return getAllProductSuccess({productResult});
           }),
           catchError((error) => {
-            return of(getAllProductFailure({ error: error }));
+            return of(getAllProductFailure({error: error}));
           }),
         );
       }),

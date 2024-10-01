@@ -3,10 +3,10 @@ import {ProductService} from '../../service/product.service';
 import {PageRequestDTO, Product} from '../../models/products.model';
 import {CommonModule} from '@angular/common';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-import { Store } from '@ngrx/store';
-import { AppState } from 'app/shared/store/store';
-import { getAllProducts } from 'app/shared/store/product/product.action';
-import { productSelector } from 'app/shared/store/product/product.selector';
+import {Store} from '@ngrx/store';
+import {AppState} from 'app/shared/store/store';
+import {getAllProducts} from 'app/shared/store/product/product.action';
+import {productSelector} from 'app/shared/store/product/product.selector';
 
 @Component({
   selector: 'app-products',
@@ -19,12 +19,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   @Input() sortBy: PageRequestDTO = {};
   private readonly store$ = inject(Store<AppState>);
   productService = inject(ProductService);
-  
-  products$ = this.store$.select(
-    productSelector,
-  );
 
-  previousSortByColumn: string | null = null;  // To store the last sort column
+  products$ = this.store$.select(productSelector);
+
+  previousSortByColumn: string | null = null; // To store the last sort column
   products: Product[] = [];
   totalProducts = 0;
 
@@ -39,8 +37,8 @@ export class ProductsComponent implements OnInit, OnChanges {
     this.products$.subscribe({
       next: (response) => {
         this.products = response;
-      }
-    })
+      },
+    });
     // this.fetchProducts(this.pageRequestDTO);
   }
 
@@ -50,14 +48,13 @@ export class ProductsComponent implements OnInit, OnChanges {
       const currentSortByColumn = this.sortBy.sortByColumn;
       const previousSortByColumn = this.previousSortByColumn;
       if (previousSortByColumn !== currentSortByColumn) {
-
         this.pageRequestDTO = {
           ...this.pageRequestDTO,
-          sortByColumn: currentSortByColumn
-        }
+          sortByColumn: currentSortByColumn,
+        };
 
         this.fetchProducts(this.pageRequestDTO);
-      } 
+      }
       // Update the previousSortByColumn to the new value
       this.previousSortByColumn = currentSortByColumn;
     }
@@ -65,7 +62,7 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   fetchProducts(pageRequestDTO: PageRequestDTO) {
     this.productService.getProductsPaginated(pageRequestDTO).subscribe((response) => {
-      console.log(response)
+      console.log(response);
       this.products = response.content;
       this.totalProducts = response.totalElements; // Total number of products (needed for paginator)
     });

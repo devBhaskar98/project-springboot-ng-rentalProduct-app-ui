@@ -1,9 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import { Comments } from '@rentalproduct/models';
+import {Comments} from '@rentalproduct/models';
 
-import { CommentService } from '../../service/comment.service'
+import {CommentService} from '../../service/comment.service';
 
 @Component({
   selector: 'app-comments',
@@ -13,22 +13,22 @@ import { CommentService } from '../../service/comment.service'
   styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent {
-
-  comments: Comments[] = [{
-    id: 1,
-    comment: 'This is a sample comment.'
-  }];
+  comments: Comments[] = [
+    {
+      id: 1,
+      comment: 'This is a sample comment.',
+    },
+  ];
 
   private readonly commentService = inject(CommentService);
 
   ngOnInit(): void {
-    this.fetchComment()
+    this.fetchComment();
   }
 
   fetchComment() {
-    this.commentService.getComment().subscribe(response => {
+    this.commentService.getComment().subscribe((response) => {
       this.comments = response;
-    })
+    });
   }
-
 }
