@@ -1,5 +1,5 @@
 import {ApplicationConfig, importProvidersFrom, Provider} from '@angular/core';
-import {provideRouter} from '@angular/router';
+import {provideRouter, withInMemoryScrolling} from '@angular/router';
 import {routes} from './app.routes';
 import {AuthConfig, OAuthService, provideOAuthClient} from 'angular-oauth2-oidc';
 import {
@@ -47,7 +47,12 @@ export const errorInterceptor: Provider = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled', // or true
+      }),
+    ),
     provideAnimations(),
     importProvidersFrom([HttpClientModule, MatDialogModule, NgbModule]),
     errorInterceptor,
