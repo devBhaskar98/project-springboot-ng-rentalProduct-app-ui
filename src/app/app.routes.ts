@@ -1,4 +1,4 @@
-import {RouterModule, Routes} from '@angular/router';
+import { Routes} from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {ContentsComponent} from './pages/contents/contents.component';
 import {AnalyticsComponent} from './pages/analytics/analytics.component';
@@ -6,7 +6,6 @@ import {CommentsComponent} from './pages/comments/comments.component';
 import {ErrorComponent} from './pages/error/error.component';
 import {BackendDownComponent} from './pages/backend-down/backend-down.component';
 import {ProductDetailsComponent} from './pages/product-details/product-details.component';
-import {NgModule} from '@angular/core';
 
 export const routes: Routes = [
   {
@@ -45,8 +44,3 @@ export const routes: Routes = [
   },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
