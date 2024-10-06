@@ -7,11 +7,15 @@ import {Store} from '@ngrx/store';
 import {AppState} from 'app/shared/store/store';
 import {getAllProducts} from 'app/shared/store/product/product.action';
 import {productSelector} from 'app/shared/store/product/product.selector';
+import {ReusableModule} from 'app/components/reusable/reusable.module';
+import {MatDialog} from '@angular/material/dialog';
+import {SidebarComponent} from 'app/components/reusable/sidebar/sidebar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, MatPaginatorModule],
+  imports: [CommonModule, ReusableModule, MatPaginatorModule, MatSidenavModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
@@ -19,6 +23,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   @Input() sortBy: PageRequestDTO = {};
   private readonly store$ = inject(Store<AppState>);
   productService = inject(ProductService);
+  private dialog = inject(MatDialog);
 
   products$ = this.store$.select(productSelector);
 
@@ -63,8 +68,9 @@ export class ProductsComponent implements OnInit, OnChanges {
   fetchProducts(pageRequestDTO: PageRequestDTO) {
     this.productService.getProductsPaginated(pageRequestDTO).subscribe((response) => {
       console.log(response);
-      this.products = response.content;
-      this.totalProducts = response.totalElements; // Total number of products (needed for paginator)
+      // FIXME: img property is not added in pagintedRequestResponse DTO
+      // this.products = response.content;
+      // this.totalProducts = response.totalElements; // Total number of products (needed for paginator)
     });
   }
 
@@ -72,5 +78,17 @@ export class ProductsComponent implements OnInit, OnChanges {
     this.pageRequestDTO.pageNo = event.pageIndex + 1;
     this.pageRequestDTO.pageSize = event.pageSize;
     this.fetchProducts(this.pageRequestDTO);
+  }
+
+  openComments(): void {
+    console.log('opening');
+    this.dialog.open(SidebarComponent, {
+      width: '400px',
+      data: {
+        productName: 'Dummy',
+        comments: 'comment', // Pass the product comments
+      },
+      position: {right: '0px'},
+    });
   }
 }

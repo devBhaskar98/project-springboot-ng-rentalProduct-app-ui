@@ -11,6 +11,7 @@ export const initialProductState: ProductState = {
     {
       id: 1,
       name: 'product_1',
+      img: '',
       description: '',
       price: 10,
     },

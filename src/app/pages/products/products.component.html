@@ -1,6 +1,18 @@
 <div class="flex-container">
   <div *ngFor="let product of products" class="card flex-column" style="width: 18rem; margin: 10px">
-    <img class="card-img-top" src="..." alt="{{ product.name }} image" />
+    <flip-card>
+      <flip-card-front>
+        <img
+          class="card-img-top"
+          [src]="'/assets/mock_data/' + product.img"
+          alt="{{ product.img }} image"
+        />
+      </flip-card-front>
+      <flip-card-back>
+        <h2>This is card back</h2>
+      </flip-card-back>
+    </flip-card>
+
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
@@ -10,7 +22,7 @@
         <button class="btn">
           <img src="assets/icons/like-icon.svg" alt="Command 1" width="20" height="20" />
         </button>
-        <button class="btn">
+        <button class="btn" (click)="openComments()">
           <img src="assets/icons/chat-icon.svg" alt="Command 2" width="20" height="20" />
         </button>
       </div>

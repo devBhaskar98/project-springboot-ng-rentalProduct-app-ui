@@ -1,0 +1,12 @@
+<mat-drawer-container class="sidebar-container">
+  <mat-drawer mode="side" position="end" opened="true" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Comments for {{ data.productName }}</h2>
+      <button mat-button (click)="closeSidebar()">Close</button>
+    </div>
+    <div class="sidebar-content">
+      <!-- Display product comments or other information here -->
+      <p *ngFor="let comment of data.comments">{{ comment }}</p>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>
