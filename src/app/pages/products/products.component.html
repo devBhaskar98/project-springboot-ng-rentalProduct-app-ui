@@ -1,5 +1,5 @@
 <div class="flex-container">
-  <div *ngFor="let product of products" class="card flex-column" style="width: 18rem; margin: 10px">
+  <div   *ngFor="let product of products" restoreScrollPosition class="card flex-column" style="width: 18rem; margin: 10px">
     <flip-card>
       <flip-card-front>
         <img
@@ -16,7 +16,9 @@
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
+      <button class="btn btn-primary" (click)="viewProductDetails(product)">View Details</button>
 
       <div class="product-actions" style="margin-top: 10px">
         <button class="btn">
