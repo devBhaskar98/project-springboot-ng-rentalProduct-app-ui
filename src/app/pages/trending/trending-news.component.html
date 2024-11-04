@@ -1,0 +1,12 @@
+<mat-drawer-container class="trending-news-container">
+  <mat-drawer mode="side" position="end" opened="true" class="trending-news">
+    <div class="trending-news-header">
+      <h2>Trending news for you</h2>
+      <button mat-button (click)="closeSidebar()">Close</button>
+    </div>
+    <div class="trending-news-content">
+      <!-- Display product comments or other information here -->
+      <p *ngFor="let article of news">{{ article.description }}</p>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>
