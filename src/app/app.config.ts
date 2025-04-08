@@ -2,7 +2,7 @@ import {ApplicationConfig, importProvidersFrom, Provider} from '@angular/core';
 import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {AuthConfig, OAuthService, provideOAuthClient} from 'angular-oauth2-oidc';
-import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';
 import {provideAnimations} from '@angular/platform-browser/animations';
 
 import {ErrorInterceptor, LoggerInterceptor, uiLoaderInterceptor} from './shared/index';
@@ -44,7 +44,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    importProvidersFrom([HttpClientModule, MatDialogModule, NgbModule]),
+    importProvidersFrom([ HttpClientModule, MatDialogModule, NgbModule]),
     errorInterceptor,
     provideHttpClient(withInterceptors([LoggerInterceptor, uiLoaderInterceptor])),
     provideStore(appStore, {runtimeChecks: {}}),
