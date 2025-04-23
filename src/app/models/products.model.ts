@@ -8,7 +8,7 @@ export interface Product {
 
 export interface ProductImage {
   id: number;
-  img: string,
+  img: string;
 }
 
 export interface PageRequestDTO {

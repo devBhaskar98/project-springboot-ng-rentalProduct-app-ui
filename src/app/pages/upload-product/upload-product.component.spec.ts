@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UploadProductComponent } from './upload-product.component';
+import {UploadProductComponent} from './upload-product.component';
 
 describe('UploadProductComponent', () => {
   let component: UploadProductComponent;
@@ -8,9 +8,8 @@ describe('UploadProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UploadProductComponent]
-    })
-    .compileComponents();
+      imports: [UploadProductComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UploadProductComponent);
     component = fixture.componentInstance;

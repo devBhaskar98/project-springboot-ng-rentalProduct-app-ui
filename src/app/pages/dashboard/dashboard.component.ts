@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {SidebarComponent} from 'app/components/reusable/sidebar/sidebar.component';
 import {MatDialog} from '@angular/material/dialog';
 import {TrendingNewsComponent} from '../trending/trending-news.component';
-import { UploadProductComponent } from '../upload-product/upload-product.component';
+import {UploadProductComponent} from '../upload-product/upload-product.component';
 // import { HttpClientModule } from '@angular/common/http';
 
 @Component({
