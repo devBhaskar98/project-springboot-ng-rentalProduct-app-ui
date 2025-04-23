@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {API_URL} from '../constant/app.constant';
 import {PageRequestDTO, Product, ProductPaginatedResponse} from '@rentalproduct/models';
+import { ProductImage } from 'app/models/products.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,5 +31,13 @@ export class ProductService {
   getAllProductsDummy(): Observable<Product[]> {
     // Create a dummy response
     return this.http.get<Product[]>('assets/mock_data/product.json');
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${this.apiUrl}/product/`, product);
+  }
+
+  uploadProductImage(productImage: any): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/api/fileupload/v1/upload`, productImage);
   }
 }
