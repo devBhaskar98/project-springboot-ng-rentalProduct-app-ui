@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"         # Root directory
+    schedule:
+      interval: daily
+  - package-ecosystem: npm
+    directory: "/your-angular-project-folder" # if Angular is in a subfolder
+    schedule:
+      interval: daily
