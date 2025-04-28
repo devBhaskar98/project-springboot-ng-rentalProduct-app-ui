@@ -1,9 +1,14 @@
 export interface Product {
-  id: number;
+  id?: number;
   name: string;
-  img: string;
+  img?: string; // another table to map the image
   description?: string;
   price: number;
+}
+
+export interface ProductImage {
+  id: number;
+  img: string;
 }
 
 export interface PageRequestDTO {

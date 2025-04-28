@@ -1,0 +1,21 @@
+.trending-news-container {
+  width: 400px;
+  height: 100vh;
+}
+
+.trending-news {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: none; /* Removes the border */
+  box-shadow: none; /* Removes any shadow, if present */
+}
+
+.trending-news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trending-news-content {
+  margin-top: 20px;
+}
