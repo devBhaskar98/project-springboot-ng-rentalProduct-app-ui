@@ -26,7 +26,7 @@
     "@angular/router": "^18.2.13",
     "@ng-bootstrap/ng-bootstrap": "17.0.1",
     "@ngrx/effects": "^18.0.2",
-    "@ngrx/store": "^18.0.2",
+    "@ngrx/store": "^20.0.0",
     "@ngrx/store-devtools": "^18.0.2",
     "angular-oauth2-oidc": "^15.0.1",
     "bootstrap": "^5.3.3",
